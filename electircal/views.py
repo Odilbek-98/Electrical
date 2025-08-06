@@ -24,4 +24,4 @@ def testimonial_page_view(request):
     return render(request=request,template_name="testimonial.html")
 
 def contact_page_view(request):
-    return render(request=request,template_name="contact.html")
+    return render(request=request,template_name="contact.html") 
