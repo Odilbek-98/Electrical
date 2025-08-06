@@ -70,55 +70,90 @@
                     <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
                         <div>
                             <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a class="text-primary fw-bold" href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                            <form>
-                                <div class="row g-4">
-                                    <div class="col-lg-12 col-xl-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="name" placeholder="Your Name">
-                                            <label for="name">Your Name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-xl-6">
-                                        <div class="form-floating">
-                                            <input type="email" class="form-control border-0" id="email" placeholder="Your Email">
-                                            <label for="email">Your Email</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-xl-6">
-                                        <div class="form-floating">
-                                            <input type="phone" class="form-control border-0" id="phone" placeholder="Phone">
-                                            <label for="phone">Your Phone</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-xl-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="project" placeholder="Project">
-                                            <label for="project">Your Project</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="subject" placeholder="Subject">
-                                            <label for="subject">Subject</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 125px"></textarea>
-                                            <label for="message">Message</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheck">
-                                            <label class="form-check-label" for="flexCheck">I agree with the site privacy policy</label>
-                                          </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3">Send Message</button>
-                                    </div>
-                                </div>
-                            </form>
+                            <form method="POST">
+        {% csrf_token %}
+        <div class="row g-4">
+
+            <div class="col-lg-12 col-xl-6">
+                <div class="form-floating">
+                    <input type="text" name="name" class="form-control border-0" id="name"
+                           placeholder="Your Name" value="{{ form.name.value|default_if_none:'' }}">
+                    <label for="name">Your Name</label>
+                    {% if form.name.errors %}
+                        <div class="text-danger small">{{ form.name.errors.0 }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-xl-6">
+                <div class="form-floating">
+                    <input type="email" name="email" class="form-control border-0" id="email"
+                           placeholder="Your Email" value="{{ form.email.value|default_if_none:'' }}">
+                    <label for="email">Your Email</label>
+                    {% if form.email.errors %}
+                        <div class="text-danger small">{{ form.email.errors.0 }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-xl-6">
+                <div class="form-floating">
+                    <input type="text" name="phone_number" class="form-control border-0" id="phone"
+                           placeholder="Phone" value="{{ form.phone_number.value|default_if_none:'' }}">
+                    <label for="phone">Your Phone</label>
+                    {% if form.phone_number.errors %}
+                        <div class="text-danger small">{{ form.phone_number.errors.0 }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-xl-6">
+                <div class="form-floating">
+                    <input type="text" name="project" class="form-control border-0" id="project"
+                           placeholder="Project" value="{{ form.project.value|default_if_none:'' }}">
+                    <label for="project">Your Project</label>
+                    {% if form.project.errors %}
+                        <div class="text-danger small">{{ form.project.errors.0 }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="form-floating">
+                    <input type="text" name="subject" class="form-control border-0" id="subject"
+                           placeholder="Subject" value="{{ form.subject.value|default_if_none:'' }}">
+                    <label for="subject">Subject</label>
+                    {% if form.subject.errors %}
+                        <div class="text-danger small">{{ form.subject.errors.0 }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="form-floating">
+                    <textarea name="message" class="form-control border-0" id="message" placeholder="Message"
+                              style="height: 125px">{{ form.message.value|default_if_none:'' }}</textarea>
+                    <label for="message">Message</label>
+                    {% if form.message.errors %}
+                        <div class="text-danger small">{{ form.message.errors.0 }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="flexCheck">
+                    <label class="form-check-label" for="flexCheck">
+                        I agree with the site privacy policy
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary w-100 py-3">Send Message</button>
+            </div>
+        </div>
+    </form>
                         </div>
                     </div>
                     <div class="col-12 wow fadeInUp" data-wow-delay="0.2s">
