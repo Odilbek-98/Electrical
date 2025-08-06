@@ -3,26 +3,22 @@
 
 {% block navbar %}
 <a href="{% url 'home-page' %}" class="nav-item nav-link ">Home</a>
-<a href="{% url 'about-page' %}" class="nav-item nav-link ">About</a>
-<a href="{% url 'service-page' %}" class="nav-item nav-link ">Service</a>
-<a href="{% url 'blog-page' %}" class="nav-item nav-link active ">Blog</a>
-<div class="nav-item dropdown">
-<a href="#" class="nav-link" data-bs-toggle="dropdown">
-    <span class="dropdown-toggle">Pages</span>
-</a>
-<div class="dropdown-menu">
-    <a href="{% url 'project-page' %}" class="dropdown-item">Our projects</a>
-    <a href="{% url 'team-page' %}" class="dropdown-item">Our team</a>
-    <a href="{% url 'testimonial-page' %}" class="dropdown-item">Testimonial</a>
-    <a href="404.html" class="dropdown-item">404 Page</a>
-</div>
-</div>
+<a href="{% url 'about-page' %}" class="nav-item nav-link">About</a>
+<a href="{% url 'service-page' %}" class="nav-item nav-link">Service</a>
+<a href="{% url 'blog-page' %}" class="nav-item nav-link active">Blog</a>
+<a href="{% url 'project-page' %}" class="nav-item nav-link">Our projects</a>
+<a href="{% url 'team-page' %}" class="nav-item nav-link">Our team</a>
+<a href="{% url 'testimonial-page' %}" class="nav-item nav-link">Testimonial</a>
 <a href="{% url 'contact-page' %}" class="nav-item nav-link">Contact</a>
+
 <div class="nav-btn ps-3">
-<button class="btn-search btn btn-primary btn-md-square mt-2 mt-lg-0 mb-4 mb-lg-0 flex-shrink-0" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-<a href="#" class="btn btn-primary py-2 px-4 ms-0 ms-lg-3"> Get Solution</a>
+    <button class="btn-search btn btn-primary btn-md-square mt-2 mt-lg-0 mb-4 mb-lg-0 flex-shrink-0" data-bs-toggle="modal" data-bs-target="#searchModal">
+        <i class="fas fa-search"></i>
+    </button>
+    <a href="#" class="btn btn-primary py-2 px-4 ms-0 ms-lg-3">Get Solution</a>
 </div>
 {% endblock navbar %}
+
 
 {% block content %}
 
