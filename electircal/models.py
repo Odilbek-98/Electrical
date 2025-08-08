@@ -25,3 +25,13 @@ class Blog(models.Model):
 
     def __str__(self):
         return f"{self.title[:20]}..."
+
+class Team(models.Model):
+    full_name = models.CharField(max_length=250)
+    job = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='team_images/', null=True, blank=True)
+
+
+    def __str__(self):
+        return f"{self.full_name[:20]}..."
+    

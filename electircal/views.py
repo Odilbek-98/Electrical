@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .forms import ContactForm
 from .models import Blog
+from .models import Team
 
 
 def home_page_view(request):
@@ -20,6 +21,7 @@ def project_page_view(request):
     return render(request=request,template_name="project.html")
 
 def team_page_view(request):
+    context = {'teams':Team.objects.all().order_by()}
     return render(request=request,template_name="team.html")
 
 def testimonial_page_view(request):
