@@ -10,3 +10,18 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+class Blog(models.Model):
+    title = models.CharField(max_length=250)
+    created_date = models.DateField(auto_now=True)
+    category = models.ForeignKey(Category,on_delete=models.SET_NULL,blank=True,null=True)
+    content = models.TextField()
+    image = models.ImageField(upload_to="Blog/")
+
+    def __str__(self):
+        return f"{self.title[:20]}..."
